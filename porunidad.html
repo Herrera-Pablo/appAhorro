@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comparador de Precios por unidades</title>
+        <meta name="description" content="¡Encuentra los mejores precios en productos de supermercado, comparando según las unidades que trae y ahorra dinero!">
+        <meta name="keywords" content="comparador, productos, supermercado, precios, ahorro, comprar, peso, medida,unidades">
+        <meta name="author" content="Pablo Gastón Herrera Developer">
+        
+        <!-- Metaetiquetas para compartir en redes sociales -->
+        <meta property="og:title" content="Comparador de Precios de productos">
+        <meta property="og:description" content="¡Encuentra los mejores precios en productos de supermercado, comparando según las unidades que trae y ahorra dinero!">
+        <meta property="og:image" content="https://appahorro.netlify.app/assets/img/pngegg.png">
+        <meta property="og:url" content="https://appahorro.netlify.app/">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Comparador de Precios de productos">
+        <meta name="twitter:description" content="¡Encuentra los mejores precios en productos de supermercado, comparando según las unidades que trae y ahorra dinero!">
+        <meta name="twitter:image" content="https://appahorro.netlify.app/assets/img/pngegg.png">
+        
+        <link rel="stylesheet" type="text/css" href="./styles/estilosuper.css">
+        
+        <!-- Iconos de aplicación y favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="./assets/img/pngegg.png" alt="Logo" class="navbar-logo shake">
+            <span class="navbar-title">AppAhorro</span>
+        </div>
+        <ul class="navbar-right">
+            <li>
+                <a href="https://appahorro.netlify.app/index" class="navbar-link">Comparar por Peso</a>
+            </li>
+        </ul>
+        
+    </nav>
+    <div class="container">
+        <h1>Comparador de precios por unidades</h1>
+        
+        <div class="form-group">
+            <h2 class="titulo-input">Producto 1</h2>
+            <label for="cantidadProducto1">Cantidad de unidades:</label>
+            <input type="number" id="cantidadProducto1" placeholder="Cantidad de unidades producto 1" min="1">
+            <label for="precioProducto1">Precio del producto:</label>
+            <input type="number" id="precioProducto1" placeholder="Precio del producto 1" min="0">
+        </div>
+
+        <div class="form-group">
+            <h2 class="titulo-input">Producto 2</h2>
+            <label for="cantidadProducto2">Cantidad de unidades:</label>
+            <input type="number" id="cantidadProducto2" placeholder="Cantidad de unidades producto 2" min="1">
+            <label for="precioProducto2">Precio del producto:</label>
+            <input type="number" id="precioProducto2" placeholder="Precio del producto 2" min="0">
+        </div>
+        
+        <button class="button-comparador" onclick="compararProductos()">Comparar Productos</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <div class="instrucciones">
+        <h2>Instrucciones:</h2>
+        <p>1. Ingresa la cantidad de unidades y el precio de cada producto.</p>
+        <p>2. Haz clic en "Comparar Productos" para obtener el resultado.</p>
+    </div>
+
+    <div class="ejemplos">
+        <h2>A tener en cuenta:</h2>
+        <p>Este comparador te ayudará a determinar cuál de los dos productos es más económico por unidad.</p>
+        <p>Arriba en la barra de navegación, encontrarás un botón para cambiar al comparador de productos por peso y/o medida.</p>
+        <p>No hagas click en el cerdito de la barra de navegación.</p>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Todos los derechos reservados | Desarrollado por:</p>
+            <p>
+                <a href="https://www.instagram.com/pablogherrera_" style="display: inline-block; margin-right: 10px;">
+                    <img src="./assets/img/instagram.svg" alt="Instagram" style="width: 25px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/pablogherrera_">@pablogherrera_</a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/pablogastonherrera/" style="display: inline-block; margin-right: 10px;">
+                    <img src="./assets/img/linkedin.svg" alt="LinkedIn" style="width: 25px; height: auto;">
+                </a>
+                <a href="https://www.linkedin.com/in/pablogastonherrera/">Pablo Gastón Herrera</a>
+            </p>
+        </div>
+    </footer>
+    <audio id="sound" style="display: none;">
+        <source src="assets/audio/monedas.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+
+<script src="./js/funcionesunidad.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const logo = document.querySelector('.navbar-logo');
+      const sound = document.getElementById('sound');
+  
+      logo.addEventListener('click', function() {
+        sound.currentTime = 0;
+        sound.play();
+      });
+    });
+  </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const logo = document.querySelector('.navbar-logo');
+  
+      logo.addEventListener('click', function() {
+        logo.classList.remove('shake'); // Reinicia la animación
+        void logo.offsetWidth; // Forzar el reinicio de la animación
+        logo.classList.add('shake'); // Agrega la clase para iniciar la animación
+      });
+    });
+  </script>
+</body>
+</html>
