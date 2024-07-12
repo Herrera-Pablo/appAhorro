@@ -51,8 +51,9 @@
                 <a href="https://appahorro.netlify.app/index" class="navbar-link">Comparar por Peso</a>
             </li>
         </ul>
-        
+        <img id="toggle-dark-mode" src="./assets/img/sunmoon.svg" alt="Modo Nocturno" class="navbar-toggle">
     </nav>
+    
     <div class="container">
         <h1>Comparador de precios por unidades</h1>
         
@@ -135,5 +136,16 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('toggle-dark-mode');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('.navbar, .container, .footer').forEach(element => {
+                element.classList.toggle('dark-mode');
+            });
+        });
+    });
+</script>
 </body>
 </html>
