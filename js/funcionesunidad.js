@@ -51,7 +51,7 @@ function compararProductos() {
             } else if (cantidadProducto1 < cantidadProducto2) {
                 var cantidadExtra = Math.ceil(cantidadProducto2 / cantidadProducto1);
                 var totalGastado = cantidadExtra * precioProducto1;
-                resultado.innerHTML = "<p>Producto 1 es más barato. Si quieres comprar la misma cantidad o más que el Producto 2, deberías comprar " + cantidadExtra + " unidades de Producto 1. Terminas gastando $" + totalGastado.toFixed(2) + ", pero al final ahorras $" + (precioProducto2 - totalGastado).toFixed(2) + "</p>";
+                resultado.innerHTML = "<p>Producto 1 es más barato.<br><br> Si quieres comprar la misma cantidad o mas que el Producto 2, deberías comprar " + cantidadExtra + " unidades de Producto 1.</p>";
             } else {
                 resultado.innerHTML = "<p>Producto 1 es más barato y te ahorras $" + Math.abs((precioProducto2 - precioProducto1).toFixed(2)) + ".</p>";
             }
@@ -61,7 +61,7 @@ function compararProductos() {
             } else if (cantidadProducto2 < cantidadProducto1) {
                 var cantidadExtra = Math.ceil(cantidadProducto1 / cantidadProducto2);
                 var totalGastado = cantidadExtra * precioProducto2;
-                resultado.innerHTML = "<p>Producto 2 es más barato. Si quieres comprar la misma cantidad o más que el Producto 1, deberías comprar " + cantidadExtra + " unidades de Producto 2. Terminas gastando $" + totalGastado.toFixed(2) + ", pero al final ahorras $" + (precioProducto1 - totalGastado).toFixed(2) + "</p>";
+                resultado.innerHTML = "<p>Producto 2 es más barato.<br><br> Si quieres comprar la misma cantidad o mas que el Producto 1, deberías comprar " + cantidadExtra + " unidades de Producto 2.</p>";
             } else {
                 resultado.innerHTML = "<p>Producto 2 es más barato y te ahorras $" + Math.abs((precioProducto1 - precioProducto2).toFixed(2)) + ".</p>";
             }
@@ -74,7 +74,7 @@ function compararProductos() {
                 var cantidadExtra = Math.ceil(cantidadMayor / cantidadMenor);
                 var productoMenor = cantidadProducto1 < cantidadProducto2 ? "Producto 1" : "Producto 2";
                 var productoMayor = cantidadProducto1 < cantidadProducto2 ? "Producto 2" : "Producto 1";
-                resultado.innerHTML = "<p>Ambos productos salen lo mismo. pero deberías comprar " + cantidadExtra + " unidades del " + productoMenor + " para igualar las proporciones de " + productoMayor + ".</p>";
+                resultado.innerHTML = "<p>Ambos productos salen lo mismo.<br><br> pero deberías comprar " + cantidadExtra + " unidades del " + productoMenor + " para igualar las cantidades del " + productoMayor + ".</p>";
             }
         }
     }

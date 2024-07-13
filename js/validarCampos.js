@@ -90,46 +90,41 @@ function compararProductos() {
     var precioPorUnidad1 = producto1.precio / producto1.cantidad;
     var precioPorUnidad2 = producto2.precio / producto2.cantidad;
 
+    var ahorroProducto1 = Math.abs(producto2.precio - producto1.precio);
+    var cantidadProducto1Equivalente = Math.ceil(producto2.cantidad / producto1.cantidad);
+    var precioTotalProducto1Equivalente = cantidadProducto1Equivalente * producto1.precio;
+    var ahorroProducto1Equivalente = Math.abs(producto2.precio - precioTotalProducto1Equivalente);
+
+    var ahorroProducto2 = Math.abs(producto1.precio - producto2.precio);
+    var cantidadProducto2Equivalente = Math.ceil(producto1.cantidad / producto2.cantidad);
+    var precioTotalProducto2Equivalente = cantidadProducto2Equivalente * producto2.precio;
+    var ahorroProducto2Equivalente = Math.abs(producto1.precio - precioTotalProducto2Equivalente);
+
     var resultado = document.getElementById('resultado');
 
     if (precioPorUnidad1 < precioPorUnidad2) {
         if (producto1.cantidad === producto2.cantidad) {
-            var ahorroDiferencia1 = Math.abs(producto2.precio - producto1.precio); 
-            resultado.innerHTML = `<p>El Producto 1 es más barato y te ahorras $${ahorroDiferencia1.toFixed(2)}.</p>`;
+            resultado.innerHTML = `<p>El Producto 1 es más barato y te ahorras $${ahorroProducto1.toFixed(2)}.</p>`;
         } else if (producto1.cantidad < producto2.cantidad) {
-            var cantidadProducto1Equivalente = (producto2.cantidad / producto1.cantidad); 
-            var precioTotalProducto1Equivalente = cantidadProducto1Equivalente * producto1.precio;
-            var ahorroPrecioTotalProducto1Equivalente = Math.abs(precioTotalProducto1Equivalente - producto2.precio);
-
-            resultado.innerHTML = `<p>El Producto 1 es más barato, pero trae menos. <br><br> Si quisieras llevar la misma cantidad que tiene el Producto 2 deberías comprar ${cantidadProducto1Equivalente.toFixed(0)} unidades del producto 1, terminas gastando $${precioTotalProducto1Equivalente.toFixed(2)} pero al final ahorras $${ahorroPrecioTotalProducto1Equivalente.toFixed(2)} en total.</p>`;
+            resultado.innerHTML = `<p>El Producto 1 es más barato, pero trae menos. Si quisieras llevar la misma cantidad que tiene el Producto 2 deberías comprar ${cantidadProducto1Equivalente}, terminas gastando $${precioTotalProducto1Equivalente.toFixed(2)}.</p>`;
         } else {
-            var ahorroProducto1 = ((producto1.cantidad / producto2.cantidad) * producto2.precio) - producto1.precio;
-            resultado.innerHTML = `<p>El Producto 1 es más barato, <br><br>  Si tuvieras que llevar suficiente producto 2 parar tener la misma cantidad que el producto 1 te ahorras $${ahorroProducto1.toFixed(2)} finalmente, osea que el producto 1 es mas barato y encima trae más.</p>`;
+            resultado.innerHTML = `<p>El Producto 1 es más barato, te ahorras $${ahorroProducto1.toFixed(2)} y encima trae más.</p>`;
         }
     } else if (precioPorUnidad1 > precioPorUnidad2) {
         if (producto1.cantidad === producto2.cantidad) {
-            var ahorroDiferencia2 = Math.abs(producto1.precio - producto2.precio); 
-            resultado.innerHTML = `<p>El Producto 2 es más barato y te ahorras $${ahorroDiferencia2.toFixed(2)}.</p>`;
+            resultado.innerHTML = `<p>El Producto 2 es más barato y te ahorras $${ahorroProducto2.toFixed(2)}.</p>`;
         } else if (producto1.cantidad > producto2.cantidad) {
-            var cantidadProducto2Equivalente = (producto1.cantidad / producto2.cantidad);
-            var precioTotalProducto2Equivalente = cantidadProducto2Equivalente * producto2.precio;
-            var ahorroPrecioTotalProducto2Equivalente = Math.abs(precioTotalProducto2Equivalente - producto1.precio);
-            resultado.innerHTML = `<p>El Producto 2 es más barato, pero trae menos.<br><br>  Si quisieras llevar la misma cantidad que tiene el Producto 1 deberías comprar ${cantidadProducto2Equivalente.toFixed(0)} unidades del producto 2, terminas gastando $${precioTotalProducto2Equivalente.toFixed(2)} pero al final ahorras $${ahorroPrecioTotalProducto2Equivalente.toFixed(2)}  en total..</p>`;
+            resultado.innerHTML = `<p>El Producto 2 es más barato, pero trae menos. Si quisieras llevar la misma cantidad que tiene el Producto 1 deberías comprar ${cantidadProducto2Equivalente}, terminas gastando $${precioTotalProducto2Equivalente.toFixed(2)}.</p>`;
         } else {
-            var ahorroProducto2 = ((producto2.cantidad / producto1.cantidad) * producto1.precio) - producto2.precio;
-            resultado.innerHTML = `<p>El Producto 2 es más barato. <br><br>  Si tuvieras que llevar suficiente producto 1 parar tener la misma cantidad que el producto 2 te ahorras $${ahorroProducto2.toFixed(2)} finalmente, osea que el producto 2 es mas barato y encima trae más.</p>`;
+            resultado.innerHTML = `<p>El Producto 2 es más barato, te ahorras $${ahorroProducto2.toFixed(2)} y encima trae más.</p>`;
         }
     } else {
         if (producto1.cantidad === producto2.cantidad) {
             resultado.innerHTML = `<p>Ambos productos salen lo mismo y traen lo mismo. Elige según tus gustos.</p>`;
         } else if (producto1.cantidad < producto2.cantidad) {
-            var cantidadProducto1Equivalente = Math.round(producto2.cantidad / producto1.cantidad); 
-            var precioTotalProducto1Equivalente = cantidadProducto1Equivalente * producto1.precio;
-            resultado.innerHTML = `<p>Ambos tienen el mismo valor, pero deberías llevar ${cantidadProducto1Equivalente.toFixed(0)} unidades del Producto 1 para tener la misma cantidad que el Producto 2.</p>`;
+            resultado.innerHTML = `<p>Ambos tienen el mismo valor, pero deberías llevar ${cantidadProducto1Equivalente} del Producto 1 para tener la misma cantidad que el Producto 2, terminas gastando $${precioTotalProducto1Equivalente.toFixed(2)}.</p>`;
         } else {
-            var cantidadProducto2Equivalente = Math.round(producto1.cantidad / producto2.cantidad);
-            var precioTotalProducto2Equivalente = cantidadProducto2Equivalente * producto1.precio;
-             resultado.innerHTML = `<p>Ambos tienen el mismo valor, pero deberías llevar ${cantidadProducto2Equivalente.toFixed(0)} unidades del Producto 2 para tener la misma cantidad que el Producto 1.</p>`;
+            resultado.innerHTML = `<p>Ambos tienen el mismo valor, pero deberías llevar ${cantidadProducto2Equivalente} del Producto 2 para tener la misma cantidad que el Producto 1, terminas gastando $${precioTotalProducto2Equivalente.toFixed(2)}.</p>`;
         }
     }
 }
